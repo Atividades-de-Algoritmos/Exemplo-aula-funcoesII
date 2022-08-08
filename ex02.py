@@ -4,32 +4,39 @@
 # Emanuel Franklyn
 # Carlos Eduardo
 #
-# data: 29/06/2022
+# data: 08/08/2022
 #
-# 2-  Escreva uma função que recebe um número n (inteiro) como parâmetro e imprime a sequencia de Fibonacci ate esse número, teste a função. https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_Fibonacci
-#
-# sem função
-n = int(input('infrome um número para a sequência de Fibonacci: ')) # Recebe o número do usuário
+# 2-  Escreva uma função que recebe um número n (inteiro) como parâmetro e imprime a sequencia de Fibonacci ate esse número, teste a função. 
 
-a, b = 0, 1 # inicializa a e b com 0 e 1 e decrementa a até chegar ao número passado por parâmetro e imprime a sequência de Fibonacci
-while a < n: # enquanto a for menor que n faça o loop abaixo (a é o número atual e b é o número anterior)
-    print(a, end=',') # imprime a atual e decrementa a em 1 e atualiza b para a atual + b anterior
-    a, b = b, a + b # atualiza a e b para a atual + b anterior e decrementa b em 1
-print('\u26C4','FIM') # \u26C4 -> boneco de neve
+# Link apoio: https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_Fibonacci
 
 
+# -- Definindo funções --
 
-##### com função
-def fib(n): # função que recebe um número e retorna a sequência de Fibonacci até esse número
-  a, b = 0, 1 # inicializa a e b com 0 e 1 e decrementa a até chegar ao número passado por parâmetro e imprime a sequência de Fibonacci
-  while a < n: # enquanto a for menor que n faça o loop abaixo (a é o número atual e b é o número anterior)
-      print(a, end=',') # imprime a atual e decrementa a em 1 e atualiza b para a atual + b anterior
-      a, b = b, a + b # atualiza a e b para a atual + b anterior e decrementa b em 1
-  return '\u26C4','FIM' # \u26C4 -> boneco de neve
+def fibonacci(n): # função que recebe um número e retorna a sequência de Fibonacci até esse número
+  
+  a = 0 # Inicializa a como 0
+  
+  b = 1 # Inicializa b como 0
+  
+  contador = 2 # E começa a contagem já do 2, porque os dois primeiros números da sequência são esses mesmos.
+  
+  print(a, b, end = ' ') # Print nos dois valores, end=' ' para não quebrar de linha do próximo elemento
 
-n = int(input('infrome um número para a sequência de Fibonacci: ')) # Recebe o número do usuário
-print(fib(n)) # chama a função fib e imprime a sequência de Fibonacci até o número passado por parâmetro
+  while contador <= n: # Enquanto o contador for menor que n, faça o loop abaixo
+    
+    novo_valor = a + b # O novo valor da sequência é sempre a soma do dos último dois valores
+    
+    print(novo_valor, end = ' ') # Imprimindo o novo valor, end = ' ' para não quebrar linha do próximo elemento
+    
+    a = b # O primeiro valor agora passa a ser o último
+    
+    b = novo_valor # E novo valor que acabou de ser mostrado passa a ser nosso último elemento
+    
+    contador += 1 # Incrementando mais um ao contador para ter a nossa condição de parada
 
+n = int(input('Informe um número para a sequência de Fibonacci: ')) # Recebe o número do usuário
 
+fibonacci(n) # Chama a função fibonacci e imprime a sequência de Fibonacci até o número passado por parâmetro
 
-
+print('\n\nFim do programa ') # Informando ao usuário que o programa terminou
